@@ -1,10 +1,10 @@
 .container {
   font-family: "Montserrat", sans-serif;
+  width: 100%;
 }
 
 .main {
-  min-height: 100vh;
-  padding: 0 20rem;
+  padding: 4em 25rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -18,8 +18,8 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
   width: 100%;
+  justify-content: space-between;
   align-items: center;
   font-family: "Montserrat", sans-serif;
 }
@@ -46,7 +46,7 @@
   background-color: #000;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  width: 65px;
+  width: 58px;
   height: 30px;
   background: black url("https://i.ibb.co/7JfqXxB/sunny.png");
   background-position: right;
@@ -107,7 +107,7 @@ input:checked + .slider:before {
   width: 100%;
   display: flex;
   justify-content: left;
-  margin: 2.5em 0;
+  margin: 4em 0;
   font-family: "Merriweather", serif;
   font-weight: 400;
   line-height: 2rem;
@@ -124,8 +124,8 @@ input:checked + .slider:before {
 }
 
 .userImage {
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 1.5em;
@@ -137,22 +137,48 @@ input:checked + .slider:before {
   display: flex;
   justify-content: left;
   flex-direction: column;
+  cursor: pointer;
+  margin-bottom: 3em;
 }
 
 .postWrapper > p {
   font-family: "Merriweather", serif;
-  font-weight: 400;
-  font-size: 40px;
+  font-weight: 200;
+  font-size: 1.2rem;
+  line-height: 1.7rem;
 }
 
-.postWrapper > a {
+.postTitle {
   color: var(--text-secondary);
-  margin-bottom: 1.5em;
   font-family: Montserrat, sans-serif;
 }
 .postDate {
   font-family: "Merriweather", serif;
   font-weight: 400;
-  font-size: 20px;
-  margin-bottom: 1em;
+  font-size: 0.9rem;
+  margin: 1em 0;
+  display: flex;
+  align-items: center;
+}
+
+.postDate > p {
+  margin-right: 5px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .main {
+    padding: 3em 15rem;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .main {
+    padding: 3em 1rem;
+    overflow: hidden;
+  }
+
+  .header {
+    padding-right: 4rem;
+  }
 }

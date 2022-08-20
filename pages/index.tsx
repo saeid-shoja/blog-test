@@ -2,10 +2,48 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../src/components/Header";
+import Post from "../src/components/Post";
 import User from "../src/components/User";
 import styles from "../styles/Home.module.css";
 
-const Home: NextPage = () => {
+export interface PostType {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
+interface PostsType {
+  posts: PostType[];
+}
+
+const baseUrl = "https://jsonplaceholder.typicode.com";
+
+// export const getStaticPaths = async () => {
+//   const res = await fetch(baseUrl);
+//   const data = await res.json();
+//   const paths = data.map((post: DataType) => {
+//     return {
+//       params: { id: post.id.toString() },
+//     };
+//   });
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${baseUrl}/posts`);
+  const data = await res.json();
+  return {
+    props: { posts: data },
+  };
+};
+
+const Home = ({ posts }: PostsType) => {
+  const sortedPosts = posts.sort((a, b) => b.userId - a.userId);
+
   return (
     <div>
       <Head>
@@ -17,7 +55,18 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <Header />
         <User />
-        {/* posts */}
+        {sortedPosts?.map((post) => {
+          return (
+            <Post
+              key={post.id}
+              postTitle={post.title}
+              description={post.body}
+              publishDate={post.userId}
+              readTime={post.id}
+              to="#"
+            />
+          );
+        })}
       </main>
     </div>
   );
