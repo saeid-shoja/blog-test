@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
 import {
   getThemeState,
@@ -12,8 +12,15 @@ const Header = () => {
   const { darkTheme } = useSelector(getThemeState);
   return (
     <div className={styles.header}>
-      <h2>Overreacted</h2>
-      <button onClick={() => dispatch(toggleTheme(!darkTheme))}>click</button>
+      <h1>Overreacted</h1>
+      <label id="switch" className={styles.switch}>
+        <input
+          type="checkbox"
+          onChange={() => dispatch(toggleTheme(!darkTheme))}
+          id="slider"
+        />
+        <span className={`${styles.slider} ${styles.round}`}></span>
+      </label>
     </div>
   );
 };

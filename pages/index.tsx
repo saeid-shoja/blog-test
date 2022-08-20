@@ -2,6 +2,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../src/components/Header";
+import User from "../src/components/User";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -15,7 +16,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Header />
-        {/* user */}
+        <User />
         {/* posts */}
       </main>
     </div>

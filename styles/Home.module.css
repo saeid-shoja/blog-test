@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Libre+Bodoni:ital,wght@1,500&family=Montserrat:wght@900&family=Roboto:wght@300&display=swap");
-
 .container {
   font-family: "Montserrat", sans-serif;
 }
 
 .main {
   min-height: 100vh;
+  padding: 0 20rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -15,118 +14,145 @@
   background-color: var(--background);
 }
 
-.footer {
+/* header */
+
+.header {
   display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
+  font-family: "Montserrat", sans-serif;
 }
 
-.footer a {
+.switch {
+  position: relative;
+  display: inline-block;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  width: 65px;
+  height: 30px;
+  background: black url("https://i.ibb.co/7JfqXxB/sunny.png");
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+input:checked + .slider {
+  background: black url("https://i.ibb.co/FxzBYR9/night.png");
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  left: 0px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: 0 0px 15px #2020203d;
+  background: white;
+}
+
+input:checked + .slider {
+  background-color: #000;
+}
+
+input:focus + .slider:before + input:checked {
+  box-shadow: 10px 0 10px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(25px);
+  transform: translateX(25px);
+  background: white;
+  /* background-repeat: no-repeat;
+  background-position: center; */
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* user */
+
+.userWrapper {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  margin: 2.5em 0;
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+.user {
+  display: flex;
   align-items: center;
-  flex-grow: 1;
+  height: max-content;
 }
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
+.user > p > a {
+  color: var(--text-secondary);
   text-decoration: underline;
 }
 
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+.userImage {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 1.5em;
 }
 
-.title,
-.description {
-  text-align: center;
-}
+/* posts */
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
+.postWrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+  justify-content: left;
+  flex-direction: column;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+.postWrapper > p {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 40px;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.postWrapper > a {
+  color: var(--text-secondary);
+  margin-bottom: 1.5em;
+  font-family: Montserrat, sans-serif;
 }
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
-  }
-  .code {
-    background: #111;
-  }
-  .logo img {
-    filter: invert(1);
-  }
+.postDate {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 1em;
 }

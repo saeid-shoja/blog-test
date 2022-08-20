@@ -1,6 +1,6 @@
 import React from "react";
-import { getThemeState } from "../redux/features/themeSlice";
-import { useSelector } from "../redux/store";
+import { getThemeState } from "./redux/features/themeSlice";
+import { useSelector } from "./redux/store";
 
 interface LayoutProps {
   children: React.ReactNode;
