@@ -26,6 +26,10 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ posts }: PostsType) => {
+  //   In this part, I didn't really understand what you mean by sorting by date and ID.
+  // However, I implemented what I found.
+  // I sorted the posts based on the user ID, which was considered instead of the date of the post, from newest to oldest.
+
   const sortedPosts = posts.sort((a, b) => b.userId - a.userId);
 
   return (

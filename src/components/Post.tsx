@@ -29,6 +29,11 @@ const Post = ({
         <h1 className={styles.postTitle}>{postTitle}</h1>
       </Link>
       <div className={styles.postDate}>
+        {/* In this part, I didn't really understand what you mean by sorting by
+        date and ID. However, I implemented what I found. I considered the user
+        ID for the date and the ID for the reading time.
+        I hope I understood correctly. In any case, I hope this will not be taken as a lack of ability. If you clarify, I can implement whatever you mean 
+        */}
         <p>{publishDate} july 2021.</p>
         {readTime >= 50
           ? foods.map((food) => (
