@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unknown-property */
-import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../src/components/Header";
 import Post from "../src/components/Post";
@@ -18,20 +16,6 @@ interface PostsType {
 }
 
 const baseUrl = "https://jsonplaceholder.typicode.com";
-
-// export const getStaticPaths = async () => {
-//   const res = await fetch(baseUrl);
-//   const data = await res.json();
-//   const paths = data.map((post: DataType) => {
-//     return {
-//       params: { id: post.id.toString() },
-//     };
-//   });
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
 
 export const getStaticProps = async () => {
   const res = await fetch(`${baseUrl}/posts`);
